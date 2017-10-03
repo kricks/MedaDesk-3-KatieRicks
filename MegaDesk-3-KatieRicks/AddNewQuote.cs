@@ -60,6 +60,11 @@ namespace MegaDesk_3_KatieRicks
                     quote.DeliveryType = DeskQuote.Delivery.Normal14Days
                     break;
             }
+
+            public static price(Desk)
+            {
+                var deskArea = deskWdith * deskDepth;
+            }
         }
 
         //create method in desk qupte to get price quote. 
