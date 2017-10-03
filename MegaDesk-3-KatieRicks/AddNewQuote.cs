@@ -17,56 +17,56 @@ namespace MegaDesk_3_KatieRicks
             InitializeComponent();
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void AddNewQuote_Load(object sender, EventArgs e)
         {
-
-        }
-
-        private void textBox2_TextChanged(object sender, EventArgs e)
-        {
+            Desk desk = new Desk();
             
+            switch (material.Text)
+            {
+                case "Oak":
+                    desk.material = Desk.deskMaterial.Oak
+                    break;
+                case "Laminate":
+                desk.material = Desk.deskMaterial.Laminate
+                    break;
+                case "Pine":
+                desk.material = Desk.deskMaterial.Pine
+                    break;
+                case "Rosewood":
+                desk.material = Desk.deskMaterial.Rosewood
+                    break;
+                case "Veneer":
+                    desk.material = Desk.deskMaterial.Veneer
+                    break;
+            }
+
+            DeskQuote quote = new DeskQuote();
+
+            quote.customerName = customerNameForm.Text;
+                quote.desk = desk;
+
+            switch (orderSpeed.Text)
+            {
+                case "Three Days":
+                    quote.DeliveryType= DeskQuote.Delivery.Rush3Days
+                    break;
+                case "Five Days":
+                    quote.DeliveryType = DeskQuote.Delivery.Rush5Days
+                    break;
+                case "Seven Days":
+                    quote.DeliveryType = DeskQuote.Delivery.Rush7Days
+                    break;
+                case "Normal - Fourteen Days":
+                    quote.DeliveryType = DeskQuote.Delivery.Normal14Days
+                    break;
+            }
         }
 
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-            
-        }
-
-        private void textBox3_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-
-        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-           /* string[] material = new string[5];
-            material[0] = "Oak";
-            material[1] = "Laminate";
-            material[2] = "Pine";
-            material[3] = "Rosewood";
-            material[4] = "Veneer";*/
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label3_Click(object sender, EventArgs e)
-        {
-            
-        }
+        //create method in desk qupte to get price quote. 
+        //create method and call it to calculate price
+        // store result in desk quote
+        //display
+        //search --- use combo box
 
         private void button1_Click_1(object sender, EventArgs e)
         {
@@ -74,6 +74,14 @@ namespace MegaDesk_3_KatieRicks
             addDisplayQuotes.Show();
             this.Hide();
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            MegaDesk addMegaDesk = new MegaDesk();
+            addMegaDesk.Show();
+            this.Hide();
+        }
+
     }
 }
 
